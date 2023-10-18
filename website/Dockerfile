@@ -18,6 +18,11 @@ RUN pip install --upgrade pip
 # copy whole project to your docker home directory. 
 COPY . $DockerHOME
 
+ENV CURRENT_WORKDIR=$PWD
+
+# Print the current working directory
+RUN echo "Current working directory is: \$CURRENT_WORKDIR"
+
 WORKDIR $DockerHOME/website
 # run this command to install all dependencies  
 RUN pip install -r requirements.txt  
